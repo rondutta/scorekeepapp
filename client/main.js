@@ -21,6 +21,7 @@ Template.hello.events({
   },
 });
 */
-import {greetUser} from './../imports/utils';
+import { greetUser, name } from './../imports/utils';
 console.log("log from /client/main.js");
 console.log(greetUser());
+console.log(name);
