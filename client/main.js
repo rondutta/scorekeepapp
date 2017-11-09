@@ -22,6 +22,7 @@ Template.hello.events({
 });
 */
 import { greetUser, name } from './../imports/utils';
+import { add } from './../imports/math'
 console.log("log from /client/main.js");
 console.log(greetUser());
-console.log(name);
+console.log(add(2, 4));
