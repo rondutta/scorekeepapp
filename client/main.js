@@ -17,13 +17,13 @@ const players=[{
   score: 10
 }];
 
-const renderPlayers = function(playersList) {
-  return playersList.map(function(player) {
+const renderPlayers = (playersList) => {
+  return playersList.map((player) => {
     return <p key={player._id}>{player.name} has {player.score} point(s)</p>;
   });
 };
 
-const handleSubmit = function(event){
+const handleSubmit = (event) => {
   let PlayerName = event.target.PlayerName.value;
   event.preventDefault();
   if(PlayerName) {
@@ -35,9 +35,9 @@ const handleSubmit = function(event){
   }  
 }; 
 
-Meteor.startup(function(){
+Meteor.startup(() => {
 
-  Tracker.autorun(function() {
+  Tracker.autorun(() => {
     let players = Players.find().fetch();
     let name = 'Rayan';
     let title = 'Score Keep';
@@ -45,7 +45,6 @@ Meteor.startup(function(){
     <div>
       <h1>{title}</h1>
       <p>Hello {name}!</p>
-      <p>This is my second para.</p>
       {renderPlayers(players)}
       <form onSubmit = {handleSubmit}>
       <input type = "text" name = "PlayerName" placeholder="Enter Player Name"/>
