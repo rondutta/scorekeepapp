@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { Players } from './../imports/api/players';
 import { Tracker } from 'meteor/tracker';
-
+import TitleBar from './../imports/ui/TitleBar'
+import AddPlayer from './../imports/ui/AddPlayer'
+import RandomComponent from './../imports/ui/RandomComponent'
 
 const renderPlayers = (playersList) => {
   return playersList.map((player) => {
@@ -33,13 +35,12 @@ Meteor.startup(() => {
 
   Tracker.autorun(() => {
     let players = Players.find().fetch();
-    let name = 'Rayan';
-    let title = 'Score Keep';
     let jsx = (
     <div>
-      <h1>{title}</h1>
-      <p>Hello {name}!</p>
+      <TitleBar/>
+      <RandomComponent/>
       {renderPlayers(players)}
+      <AddPlayer/>
       <form onSubmit = {handleSubmit}>
       <input type = "text" name = "PlayerName" placeholder="Enter Player Name"/>
       <button>Add Player</button>
