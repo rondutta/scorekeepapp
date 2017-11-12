@@ -5,21 +5,15 @@ import { Players } from './../imports/api/players';
 import { Tracker } from 'meteor/tracker';
 
 
-
-
-const players=[{
-  _id: '1',
-  name: 'Rayan',
-  score: 23
-},{
-  _id: '2',
-  name: 'Boo',
-  score: 10
-}];
-
 const renderPlayers = (playersList) => {
   return playersList.map((player) => {
-    return <p key={player._id}>{player.name} has {player.score} point(s)</p>;
+  return (<p key={player._id}> 
+   {player.name} has {player.score} point(s)
+   <button onClick={()=> Players.update(player._id, {$inc : {score: 1}})}>+1</button>
+   <button onClick={()=> Players.update(player._id, {$inc : {score: -1}})}>-1</button>
+   <button onClick={() => Players.remove(player._id)}> X </button>
+   </p>
+   );
   });
 };
 
@@ -54,9 +48,4 @@ Meteor.startup(() => {
     );
     ReactDOM.render(jsx,document.getElementById('app'));
   });
-/*Players.insert({
-  name: 'Adwi',
-  score:-10
-});*/
-
 });
