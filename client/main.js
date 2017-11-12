@@ -1,28 +1,9 @@
-/* import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Meteor } from 'meteor/meteor';
 
-import './main.html';
-
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+Meteor.startup(function(){
+  let name = 'Rayan';
+  let jsx = <p>Hello {name}!</p>;
+  ReactDOM.render(jsx,document.getElementById('app'));
 });
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
-*/
-import { greetUser, name } from './../imports/utils';
-import { add } from './../imports/math'
-console.log("log from /client/main.js");
-console.log(greetUser());
-console.log(add(2, 4));
