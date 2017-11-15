@@ -7,7 +7,10 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "meteor-node-stubs": "^0.3.2",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.6.0",
     "react": "^16.1.0",
-    "react-dom": "^16.1.0"
+    "react-dom": "^16.1.0",
+    "react-flip-move": "^2.9.17"
   }
 }
